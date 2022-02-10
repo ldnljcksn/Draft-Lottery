@@ -1,22 +1,21 @@
 import random
 import pandas as pd
 
-
-teams_wins_dict = {'Houston': 0,
-                   'Detroit': 1,
-                   'Orlando': 2,
-                   'Oklahoma City': 3,
-                   'Cleveland': 4,
-                   'Minnesota': 5,
-                   'Toronto': 6,
-                   'Sacramento': 7,
-                   'Chicago': 8,
-                   'New Orleans': 9,
-                   'Charlotte': 10,
-                   'San Antonio': 11,
-                   'Indiana': 12,
-                   'Golden State': 13
-                   }
+teams_record_dict = {'Houston': 0,
+                     'Detroit': 1,
+                     'Orlando': 2,
+                     'Oklahoma City': 3,
+                     'Cleveland': 4,
+                     'Minnesota': 5,
+                     'Toronto': 6,
+                     'Sacramento': 7,
+                     'Chicago': 8,
+                     'New Orleans': 9,
+                     'Charlotte': 10,
+                     'San Antonio': 11,
+                     'Indiana': 12,
+                     'Golden State': 13
+                     }
 
 draft_odds = [[0 for i in range(14)] for j in range(14)]
 team_first = 0
@@ -58,12 +57,11 @@ for j in range(0, runs):
 
         if team not in draft_list:
             draft_list.append(team)
-            # print(str(14 - i) + '.', team, str(teams_wins_dict[team]) + '-' + str(82 - teams_wins_dict[team]))
+            # print(str(14 - i) + '.', team, str(teams_record_dict[team]) + '-' + str(82 - teams_record_dict[team]))
             i += 1
 
     for each_team in draft_list:
-        draft_odds[teams_wins_dict[each_team]][13 - draft_list.index(each_team)] += 1
-
+        draft_odds[teams_record_dict[each_team]][13 - draft_list.index(each_team)] += 1
 
 for each_line in draft_odds:
     each_line = [(100 * x / runs) for x in each_line]
